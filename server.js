@@ -11,7 +11,7 @@ server.use(express.json())
 require('dotenv').config()
 
 server.get('/', (req, res, next) => {
-    return res.status(201).json({ message: "Welcome to Instaproject, Sara-style!" })
+    return res.status(201).json({ message: "Welcome to Insta-project, Sara-style!" })
 })
 
 server.use((err, req, res, next) => {
