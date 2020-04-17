@@ -3,10 +3,10 @@
 module.exports = {
 
   development: {
-    client: 'sqlite3',
-    useNullAsDefault:true,
+    client: 'sqlite3', //specifies the DBMS(DataBaseMagangementSystem)
+    useNullAsDefault: true, //required for SQLite
     connection: {
-      filename: './dev.sqlite3'
+      filename: './dev.sqlite3' //location of our db file
     }
   },
 
@@ -19,11 +19,14 @@ module.exports = {
     },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
+      afterCreate: (conn, done) => {
+        // runs after a connection is made to the sqlite engine
+        conn.run("PRAGMA foreign_keys = ON", done); // turn on FK enforcement
     },
     migrations: {
       tableName: 'knex_migrations'
-    }
+    },
   },
 
   production: {
@@ -41,5 +44,5 @@ module.exports = {
       tableName: 'knex_migrations'
     }
   }
-
-};
+ }
+}
