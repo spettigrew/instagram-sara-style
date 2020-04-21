@@ -17,7 +17,7 @@ function media() {
 function findBy() {
     return db('media_post')
     .where(filter)
-    .select('id', 'url')
+    .select('name', 'url')
 }
 
 function findById(id) {
