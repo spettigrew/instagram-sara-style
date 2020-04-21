@@ -17,6 +17,7 @@ function posts() {
 function findBy() {
     return db('posts')
     .where(filter)
+    .select('name')
 }
 
 function findById() {

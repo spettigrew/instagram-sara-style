@@ -11,6 +11,7 @@ module.exports = {
 function findBy() {
     return db('users')
     .where(filter)
+    .select('name')
 }
 
 function findById() {
