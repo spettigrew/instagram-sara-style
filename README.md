@@ -5,3 +5,5 @@
 * find installs and backend file setup in: https://github.com/spettigrew/Installs-for-backend
 
 * find DB setup: https://app.dbdesigner.net/designer/schema/321132
+
+find knex/schema setup: http://knexjs.org/
