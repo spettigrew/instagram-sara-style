@@ -1,12 +1,18 @@
 const db = require("../config")
 
 module.exports = {
+    list,
     posts,
     findBy,
     findById,
     insert,
     update,
     remove,
+}
+
+function list() {
+    return db('list')
+    .select()
 }
 
 function posts() {
