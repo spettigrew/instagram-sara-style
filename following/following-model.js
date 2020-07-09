@@ -1,4 +1,4 @@
-const db = require("../config")
+const db = require("../src/config")
 
 module.exports = {
     list,

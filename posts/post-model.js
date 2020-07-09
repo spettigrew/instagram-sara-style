@@ -1,7 +1,8 @@
-const db = require("../config")
+const db = require("../src/config")
 
 module.exports = {
     list,
+    posts,
     findBy,
     findById,
     insert,
@@ -11,36 +12,41 @@ module.exports = {
 
 function list() {
     return db('list')
-        .select()
+    .select()
+}
+
+function posts() {
+    return db ('posts')
+    .select('name')
 }
 
 function findBy() {
-    return db('users')
+    return db('posts')
     .where(filter)
     .select('name')
 }
 
 function findById() {
-    return db('users')
+    return db('posts')
     .where({ id })
     .first()
 }
 
-function insert(user) {
-    const [ id ] = db ('users')
-    .insert(user)
+function insert(post) {
+    const [ id ] = db ('posts')
+    .insert(post)
     return findById(id)
 }
 
 function update(id, changes) {
-    db('users')
+    db('posts')
     .where({ id })
     .update(changes)
     return findById(id)
 }
 
 function remove(id) {
-    return db('users')
+    return db('posts')
     .where({ id })
     .del()
 }

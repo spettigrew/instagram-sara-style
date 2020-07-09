@@ -1,8 +1,8 @@
-const db = require("../config")
+const db = require("../config/config")
 
 module.exports = {
     list,
-    posts,
+    media,
     findBy,
     findById,
     insert,
@@ -12,41 +12,41 @@ module.exports = {
 
 function list() {
     return db('list')
-    .select()
+        .select()
 }
 
-function posts() {
-    return db ('posts')
+function media() {
+    return db ('media')
     .select('name')
 }
 
 function findBy() {
-    return db('posts')
+    return db('media_post')
     .where(filter)
-    .select('name')
+    .select('name', 'url')
 }
 
-function findById() {
-    return db('posts')
+function findById(id) {
+    return db('media_post')
     .where({ id })
     .first()
 }
 
-function insert(post) {
-    const [ id ] = db ('posts')
-    .insert(post)
+function insert(mediaPost) {
+    const [ id ] = db ('media')
+    .insert(mediaPost)
     return findById(id)
 }
 
 function update(id, changes) {
-    db('posts')
+    db('media')
     .where({ id })
     .update(changes)
     return findById(id)
 }
 
 function remove(id) {
-    return db('posts')
+    return db('media')
     .where({ id })
     .del()
 }

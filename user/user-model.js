@@ -1,4 +1,4 @@
-const db = require("../config")
+const db = require("../src/config")
 
 module.exports = {
     list,
@@ -11,36 +11,36 @@ module.exports = {
 
 function list() {
     return db('list')
-    .select()
+        .select()
 }
 
 function findBy() {
-    return db('followers')
+    return db('users')
     .where(filter)
     .select('name')
 }
 
 function findById() {
-    return db('followers')
+    return db('users')
     .where({ id })
     .first()
 }
 
 function insert(user) {
-    const [id] = db('followers')
+    const [ id ] = db ('users')
     .insert(user)
     return findById(id)
 }
 
 function update(id, changes) {
-    db('followers')
+    db('users')
     .where({ id })
     .update(changes)
     return findById(id)
 }
 
 function remove(id) {
-    return db('followers')
+    return db('users')
     .where({ id })
     .del()
 }
