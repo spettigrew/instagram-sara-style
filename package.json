@@ -28,8 +28,10 @@
     "jest": "^26.1.0",
     "knex": "^0.20.15",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.4",
     "sqlite3": "^4.1.1",
     "supertest": "^4.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
